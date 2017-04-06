@@ -274,6 +274,9 @@ do
 		elseif maxPlayers == 1 or not IsInGroup() then -- treat solo scenarios as solo, not party or raid
 			return "solo",  1
 		elseif IsInRaid() then
+			if instanceType == "none" then
+				maxPlayers = 40
+			end
 			return "raid",  maxPlayers or 40
 		else
 			-- In the world, maxPlayers is 40 even when in just a party
